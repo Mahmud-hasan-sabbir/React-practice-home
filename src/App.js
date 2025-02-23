@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './Style.css';
 
 function App() {
   var name = "Md. Shakil Ahmed";
@@ -22,9 +23,24 @@ function App() {
         <p>person : {person2.name}</p>
         <p>designation : {person2.job}</p>
         <p style={style}>{person2.name + " " + person2.job}</p>
+
+        <Person />
+        <Person />
+        <Person />
+        <Person />
       </header>
     </div>
   );
+}
+
+
+function Person()
+{
+  return <div className="PersonStyle">
+        <h1 >Sakib al hasan</h1>
+        <h3>Hero of the Year</h3>
+
+  </div>
 }
 
 export default App;
