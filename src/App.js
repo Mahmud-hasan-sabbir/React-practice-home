@@ -10,6 +10,8 @@ function App() {
     color: 'red',
     backgroundColor: 'yellow'
   };
+
+  let nayoks = ['sakib khan', 'salman khan', 'amir khan', 'sharuk khan'];
     return (
     <div className="App">
       <header className="App-header">
@@ -24,23 +26,23 @@ function App() {
         <p>designation : {person2.job}</p>
         <p style={style}>{person2.name + " " + person2.job}</p>
 
-        <Person />
-        <Person />
-        <Person />
-        <Person />
+        <Person title={nayoks[0]} desig="cricket player" />
+        <Person title={nayoks[1]} desig="no one super stare" />
+        <Person title={nayoks[2]} desig="forain man"/>
+        <Person title={nayoks[3]} desig="he is a farmar"/>
       </header>
     </div>
   );
 }
 
 
-function Person()
-{
-  return <div className="PersonStyle">
-        <h1 >Sakib al hasan</h1>
-        <h3>Hero of the Year</h3>
+  function Person(props)
+  {
+    return <div className="PersonStyle">
+          <h1 >{props.title}</h1>
+          <h3>{props.desig}</h3>
 
-  </div>
-}
+    </div>
+  }
 
 export default App;
