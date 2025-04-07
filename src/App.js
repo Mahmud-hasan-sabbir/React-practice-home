@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import './Style.css';
-import  { useState } from 'react';
+import  { useEffect, useState } from 'react';
 
 function App() {
   var name = "Md. Shakil Ahmed";
@@ -47,7 +47,7 @@ function App() {
        
         <p>My first react pragraph</p>
         <h1>Headding line</h1>
-        <p>{(5+5) - 3}</p>
+          <DynamicUser></DynamicUser>
         <h6 style={style}>Bangladesh top doctor : {name}</h6>
         <h6>My name is : {person.name}</h6>
         <h6>My job is : {person.job}</h6>
@@ -93,6 +93,34 @@ function App() {
           <h3>{props.desig}</h3>
 
     </div>
+  }
+
+  function DynamicUser() {
+    const [users, setUsers] = useState([]);
+    
+    useEffect(() => {
+      fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())
+        .then(data => setUsers(data))
+    }, []);
+    
+    return (
+      <div>
+        <h1>Dynamic User Count value: {users.length}</h1>
+        <div>
+          <h2>Dynamic User List</h2>
+          
+          <ul>
+           
+            {
+              users.map(user => <li>{user.name},{user.phone}</li>)
+            }
+          </ul>
+         
+         
+        </div>
+      </div>
+    );
   }
 
   function Product(props){
